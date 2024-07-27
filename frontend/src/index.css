@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html[data-primary-theme='light'] {
+        color-scheme: light;
+
+        --main-background-color: #F8F3EB;
+        --secondary-background-color: #EFEADC;
+        --task-color: #FDFBF9;
+        --text-color: #1D1C16;
+    }
+
+    /* html[data-primary-theme='dark'] {
+        color-scheme: dark;
+
+        --main-saturation: 50%;
+        --main-lightness: 50%;
+    } */
+
+    html[data-secondary-theme='sweet'] {
+        --primary-font: "Abril Fatface", "serif";
+        --secondary-font: "Poppins", "sans-serif";
+
+        --main-color: #F4E65A;
+        --main-light-color: #F4E65A75;
+        --secondary-color: #695F00;
+        --secondary-light-color: #695F0070;
+        /* --secondary-color: #A8CFB9; hsl(146, 29%, 74%)*/
+    }
+
+    /* html[data-secondary-theme='minimal'] {
+        --primary-font: "Space Mono", "monospace";
+        --secondary-font: "Bitter", "serif";
+        --secondary-color: #A8CFB9;
+    } */
+
+    svg {
+        @apply p-2 size-9;
+    }
+
+    label {
+        @apply flex-1 font-bold;
+    }
+
+    input {
+        @apply w-full bg-[var(--task-color)] rounded-xl px-5 py-2 outline-[var(--secondary-color)] font-normal my-2;
+    }
+
+    
+    body {
+        background-color: var(--background-color);
+        font-family: var(--secondary-font);
+        color: var(--text-color);
+    }
+}
+
+@layer components {
+    .error {
+        @apply flex items-center text-sm font-normal text-red-700;
+    }
+
+    .logo {
+        @apply text-4xl font-bold main-font ms-2;
+    }
+
+    .primary-btn {
+        @apply bg-[var(--secondary-color)] text-[var(--main-background-color)] rounded-full text-sm p-2.5;
+    }
+
+    .toast-success {
+        @apply fixed z-50 max-w-md p-4 text-[var(--main-background-color)] bg-green-500 ps-2 rounded-xl top-3 right-5;
+    }
+
+    .toast-error {
+        @apply fixed z-50 max-w-md p-4 text-[var(--main-background-color)] bg-red-300 ps-2 rounded-xl top-3 right-5;
+    }
+}
+
+@layer utilities {
+    .main-bg {
+        background-color: var(--main-background-color);
+    }
+    
+    .secondary-bg {
+        background-color: var(--secondary-background-color);
+    }
+    
+    .main-font {
+        font-family: var(--primary-font);
+    }
+
+    button>svg,
+    span:not(.logo)>a {
+        padding: 0.5rem;
+        border-radius: 9999px;
+        margin: 0.25rem;
+    }
+
+    span:not(.logo)>a:hover:not(.active) {
+        background-color: var(--secondary-light-color);
+        color: var(--main-color);
+    }
+
+    button>svg:hover,
+    a.active {
+        background-color: var(--main-light-color);
+    }
+
+    a.active {
+        display: block;
+    }
+}
