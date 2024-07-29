@@ -76,6 +76,22 @@
     .toast-error {
         @apply fixed z-50 max-w-md p-4 text-[var(--main-background-color)] bg-red-300 ps-2 rounded-xl top-3 right-5;
     }
+
+    .open-sidenav {
+        @apply top-0 left-0 start-0;
+    }
+
+    .close-sidenav {
+        @apply top-0 -left-full;
+    }
+
+    .open-sidenav-bg {
+        @apply md:block;
+    }
+
+    .close-sidenav-bg {
+        @apply hidden;
+    }
 }
 
 @layer utilities {

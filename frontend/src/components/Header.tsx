@@ -8,7 +8,7 @@ const Header = () => {
 
   return (
     <div className="flex items-center justify-between p-6 pe-6 secondary-bg">
-      <div className="flex">
+      <div className="flex p-0.5 md:p-0">
         <SideMenu />
         <span className="logo">
           <Link to="/">todo</Link>
@@ -18,7 +18,7 @@ const Header = () => {
         <NavLink className="hidden md:block" to="/this-week">
           this week
         </NavLink>
-        <NavLink className="hidden md:block" to="/">
+        <NavLink className="md:block" to="/">
           today
         </NavLink>
         <NavLink className="hidden md:block" to="/tomorrow">
