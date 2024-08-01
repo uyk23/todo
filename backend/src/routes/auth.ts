@@ -35,7 +35,7 @@ router.post(
       }
 
       const token = jwt.sign(
-        { useId: user.id },
+        { userId: user.id },
         process.env.JWT_SECRET_KEY as string,
         { expiresIn: "1d" }
       );
@@ -55,7 +55,7 @@ router.post(
 );
 
 router.get("/validate-token", verifyToken, (req: Request, res: Response) => {
-  res.status(200).send({userId: req.userId});
+  res.status(200).send({ userId: req.userId });
 });
 
 router.post("/logout", (req:Request, res:Response) => {

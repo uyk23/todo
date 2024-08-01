@@ -1,7 +1,20 @@
 import { LoginFormData } from "./pages/Login";
 import { RegisterFormData} from "./pages/Register";
+import { UserType } from '../../backend/src/shared/types';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '';
+
+export const fetchCurrentUser = async (): Promise<UserType> => {
+    const response = await fetch(`${API_BASE_URL}/api/users/me`, {
+        credentials: "include"
+    });
+
+    if (!response.ok) {
+        throw new Error("error fetching user");
+    }
+
+    return response.json();
+}
 
 export const register = async (formData: RegisterFormData) => {
     const response = await fetch(`${API_BASE_URL}/api/users/register`, {
@@ -31,11 +44,11 @@ export const login = async (formData: LoginFormData) => {
 
     const responseBody = await response.json();
     if(!response.ok) {
-        throw new Error(responseBody.message);
+        throw new Error(responseBody.message || "wrong credentials");
     }
 };
 
-export const logOut = async() => {
+export const logOut = async () => {
     const response = await fetch(`${API_BASE_URL}/api/auth/logout`, {
         credentials: "include",
         method: "POST"

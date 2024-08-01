@@ -93,6 +93,7 @@ const Register = () => {
               })}
             ></input>
             <button
+              type="button"
               onClick={(e) => {
                 e.preventDefault();
                 setShowPassword(!showPassword);
@@ -127,6 +128,7 @@ const Register = () => {
               })}
             ></input>
             <button
+              type="button"
               onClick={(e) => {
                 e.preventDefault();
                 setShowConfirmPassword(!showConfirmPassword);

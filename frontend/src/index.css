@@ -70,11 +70,11 @@
     }
 
     .toast-success {
-        @apply fixed z-50 max-w-md p-4 text-[var(--main-background-color)] bg-green-500 ps-2 rounded-xl top-3 right-5;
+        @apply fixed z-50 max-w-md p-4 text-[var(--main-background-color)] bg-green-900 ps-2 rounded-xl top-3 right-5;
     }
 
     .toast-error {
-        @apply fixed z-50 max-w-md p-4 text-[var(--main-background-color)] bg-red-300 ps-2 rounded-xl top-3 right-5;
+        @apply fixed z-50 max-w-md p-4 text-[var(--main-background-color)] bg-red-700 ps-2 rounded-xl top-3 right-5;
     }
 
     .open-sidenav {

@@ -67,6 +67,7 @@ const Login = () => {
             })}
           ></input>
           <button
+            type="button"
             onClick={(e) => {
               e.preventDefault();
               setShowPassword(!showPassword);

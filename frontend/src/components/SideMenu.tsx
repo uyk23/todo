@@ -1,15 +1,26 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Bars3BottomLeftIcon, XMarkIcon } from "@heroicons/react/16/solid";
 import { FaceSmileIcon } from "@heroicons/react/24/outline";
+import { useQuery } from "react-query";
+import * as apiClient from "../api-client";
 
 const SideMenu = () => {
   const [open, setOpen] = useState(false);
+  const [username, setUsername] = useState("");
 
   const openMenu = (): void => setOpen(true);
   const closeMenu = (): void => setOpen(false);
 
-  const name = "";
+  const { data: currentUser } = useQuery(
+    "fetchCurrentUser",
+    apiClient.fetchCurrentUser,
+    { refetchOnWindowFocus: false }
+  );
+
+  useEffect(() => {
+    setUsername(currentUser?.username || "");
+  }, [currentUser]);
 
   return (
     <>
@@ -40,7 +51,9 @@ const SideMenu = () => {
           </div>
         </div>
         <div className="flex items-center w-auto m-5 ms-8">
-          <p className="overflow-hidden text-xl text-ellipsis">hello {name}</p>
+          <p className="overflow-hidden text-xl text-ellipsis">
+            hello {username}
+          </p>
           <div>
             <FaceSmileIcon className="size-10" />
           </div>
