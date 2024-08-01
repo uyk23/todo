@@ -5,29 +5,37 @@
 @layer base {
     html[data-primary-theme='light'] {
         color-scheme: light;
-
-        --main-background-color: #F8F3EB;
-        --secondary-background-color: #EFEADC;
-        --task-color: #FDFBF9;
-        --text-color: #1D1C16;
     }
 
-    /* html[data-primary-theme='dark'] {
+    html[data-primary-theme='dark'] {
         color-scheme: dark;
+    }
 
-        --main-saturation: 50%;
-        --main-lightness: 50%;
-    } */
-
-    html[data-secondary-theme='sweet'] {
+    html[data-primary-theme='light'][data-secondary-theme='sweet'] {
         --primary-font: "Abril Fatface", "serif";
         --secondary-font: "Poppins", "sans-serif";
 
-        --main-color: #F4E65A;
-        --main-light-color: #F4E65A75;
-        --secondary-color: #695F00;
-        --secondary-light-color: #695F0070;
-        /* --secondary-color: #A8CFB9; hsl(146, 29%, 74%)*/
+        --main-background-color: #FFFFEB;
+        --secondary-background-color: #E9E1C1;
+        --task-color: #A8CFB9;
+        --text-color: #50281F;
+        --main-color: #F4E65A50;
+        --secondary-color: #50281F;
+        --secondary-light-color: #50281F75;
+    }
+
+    html[data-primary-theme='dark'][data-secondary-theme='sweet'] {
+        --primary-font: "Abril Fatface", "serif";
+        --secondary-font: "Poppins", "sans-serif";
+
+        --main-background-color: #351C16;
+        --secondary-background-color: #50281F;
+        --task-color: #365142;
+        --text-color: #EDEDCE;
+        --main-color: #9f9a7a;
+        --main-color: #DCC90050;
+        --secondary-color: #F7EEB8;
+        --secondary-light-color: #F7EEB895;
     }
 
     /* html[data-secondary-theme='minimal'] {
@@ -89,8 +97,29 @@
         @apply md:block;
     }
 
-    .close-sidenav-bg {
+    .close-sidenav-bg,
+    label.toggle-button input {
         @apply hidden;
+    }
+
+    label.toggle-button {
+        @apply relative flex items-center w-24 p-1 transition-all rounded-full cursor-pointer bg-[var(--main-color)];
+    }
+
+    label.toggle-button span {
+        @apply w-8 h-8 transition-transform rounded-full bg-[var(--text-color)];
+    }
+
+    label.toggle-button input:checked + span {
+        @apply float-right ml-auto mr-10 translate-x-10;
+    }
+
+    label.toggle-button input:checked + span>* {
+        @apply float-right ml-auto mr-0;
+    }
+
+    label.toggle-button:active span {
+        @apply w-14;
     }
 }
 
@@ -107,6 +136,10 @@
         font-family: var(--primary-font);
     }
 
+    .task {
+        background-color: var(--task-color);
+    }
+
     button>svg,
     span:not(.logo)>a {
         padding: 0.5rem;
@@ -116,12 +149,12 @@
 
     span:not(.logo)>a:hover:not(.active) {
         background-color: var(--secondary-light-color);
-        color: var(--main-color);
+        color: var(--main-background-color);
     }
 
     button>svg:hover,
     a.active {
-        background-color: var(--main-light-color);
+        background-color: var(--main-color);
     }
 
     a.active {

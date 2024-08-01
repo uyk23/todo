@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Bars3BottomLeftIcon, XMarkIcon } from "@heroicons/react/16/solid";
 import { FaceSmileIcon } from "@heroicons/react/24/outline";
 import { useQuery } from "react-query";
+import ThemeSwitch from "./ThemeSwitch";
 import * as apiClient from "../api-client";
 
 const SideMenu = () => {
@@ -36,7 +37,7 @@ const SideMenu = () => {
       ></button>
       <div
         className={
-          "md:w-1/2 w-full h-full absolute transition-all main-bg z-20 duration-700 " +
+          "flex flex-col md:w-1/2 w-full h-full absolute transition-all main-bg z-20 duration-700 " +
           (open ? "open-sidenav" : "close-sidenav")
         }
       >
@@ -50,13 +51,14 @@ const SideMenu = () => {
             </span>
           </div>
         </div>
-        <div className="flex items-center w-auto m-5 ms-8">
-          <p className="overflow-hidden text-xl text-ellipsis">
-            hello {username}
-          </p>
-          <div>
+        <div className="flex flex-col flex-1 w-auto m-5 ms-8">
+          <div className="flex items-center">
+            <p className="overflow-hidden text-xl max-w-96 text-ellipsis">
+              hello {username}
+            </p>
             <FaceSmileIcon className="size-10" />
           </div>
+          <ThemeSwitch />
         </div>
       </div>
     </>
