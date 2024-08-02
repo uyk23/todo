@@ -38,11 +38,31 @@
         --secondary-light-color: #F7EEB895;
     }
 
-    /* html[data-secondary-theme='minimal'] {
+    html[data-primary-theme='light'][data-secondary-theme='minimal'] {
         --primary-font: "Space Mono", "monospace";
         --secondary-font: "Bitter", "serif";
-        --secondary-color: #A8CFB9;
-    } */
+
+        --main-background-color: #F0F1FF;
+        --secondary-background-color: #E1E2EC;
+        --task-color: #E1E2EC;
+        --text-color: #1B1B1E;
+        --main-color: #8396C650;
+        --secondary-color: #1B1B1E;
+        --secondary-light-color: #1B1B1E75;
+    }
+
+    html[data-primary-theme='dark'][data-secondary-theme='minimal'] {
+        --primary-font: "Space Mono", "monospace";
+        --secondary-font: "Bitter", "serif";
+        
+        --main-background-color: #0B0B17;
+        --secondary-background-color: #171D2C;
+        --task-color: #171D2C;
+        --text-color: #CCCEE4;
+        --main-color: #8396C650;
+        --secondary-color: #CCCEE4;
+        --secondary-light-color: #CCCEE495;
+    }
 
     svg {
         @apply p-2 size-9;
