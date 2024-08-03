@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Bars3BottomLeftIcon, XMarkIcon } from "@heroicons/react/16/solid";
 import { FaceSmileIcon } from "@heroicons/react/24/outline";
-import { useQuery } from "react-query";
 import ThemeSwitch from "./ThemeSwitch";
+import { useQuery } from "react-query";
 import * as apiClient from "../api-client";
+import { useAppContext } from "../contexts/AppContext";
 
 const SideMenu = () => {
+  const { isLoggedIn } = useAppContext();
   const [open, setOpen] = useState(false);
   const [username, setUsername] = useState("");
 
@@ -54,7 +56,7 @@ const SideMenu = () => {
         <div className="flex flex-col flex-1 w-auto m-5 ms-8">
           <div className="flex items-center">
             <p className="overflow-hidden text-xl max-w-96 text-ellipsis">
-              hello {username}
+              hi {isLoggedIn ? username : ""}
             </p>
             <FaceSmileIcon className="size-10" />
           </div>
