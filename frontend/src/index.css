@@ -15,53 +15,65 @@
         --primary-font: "Abril Fatface", "serif";
         --secondary-font: "Poppins", "sans-serif";
 
-        --main-background-color: #FFFFEB;
-        --secondary-background-color: #E9E1C1;
+        --main-bg-color: #FFFFEB;
+        --secondary-bg-color: #E9E1C1;
         --task-color: #A8CFB9;
         --text-color: #50281F;
         --main-color: #F4E65A50;
         --secondary-color: #50281F;
         --secondary-light-color: #50281F75;
+        --warning-color-1: #ee72729f;
+        --warning-color-2: #eec072c8;
+        --warning-color-3: #84bb9fbb;
     }
 
     html[data-primary-theme='dark'][data-secondary-theme='sweet'] {
         --primary-font: "Abril Fatface", "serif";
         --secondary-font: "Poppins", "sans-serif";
 
-        --main-background-color: #351C16;
-        --secondary-background-color: #50281F;
+        --main-bg-color: #351C16;
+        --secondary-bg-color: #50281F;
         --task-color: #365142;
         --text-color: #EDEDCE;
         --main-color: #9f9a7a;
         --main-color: #DCC90050;
         --secondary-color: #F7EEB8;
         --secondary-light-color: #F7EEB895;
+        --warning-color-1: #c9292990;
+        --warning-color-2: #ab7312e3;
+        --warning-color-3: #082b18cb;
     }
 
     html[data-primary-theme='light'][data-secondary-theme='minimal'] {
         --primary-font: "Space Mono", "monospace";
         --secondary-font: "Bitter", "serif";
 
-        --main-background-color: #F0F1FF;
-        --secondary-background-color: #E1E2EC;
+        --main-bg-color: #F0F1FF;
+        --secondary-bg-color: #E1E2EC;
         --task-color: #E1E2EC;
         --text-color: #1B1B1E;
         --main-color: #8396C650;
         --secondary-color: #1B1B1E;
         --secondary-light-color: #1B1B1E75;
+        --warning-color-1: #e9b1b1bd;
+        --warning-color-2: #eabf7583;
+        --warning-color-3: #b3b8ed54;
     }
 
     html[data-primary-theme='dark'][data-secondary-theme='minimal'] {
         --primary-font: "Space Mono", "monospace";
         --secondary-font: "Bitter", "serif";
         
-        --main-background-color: #0B0B17;
-        --secondary-background-color: #171D2C;
+        --main-bg-color: #0B0B17;
+        --secondary-bg-color: #171D2C;
         --task-color: #171D2C;
         --text-color: #CCCEE4;
         --main-color: #8396C650;
         --secondary-color: #CCCEE4;
         --secondary-light-color: #CCCEE495;
+        --warning-color-1: #a3393990;
+        --warning-color-2: #8f6214e3;
+        --warning-color-3: #0b1327db;
     }
 
     svg {
@@ -72,8 +84,9 @@
         @apply flex-1 font-bold;
     }
 
-    input {
-        @apply w-full bg-[var(--task-color)] rounded-xl px-5 py-2 outline-[var(--secondary-color)] font-normal my-2;
+    input,
+    textarea {
+        @apply w-full bg-[var(--main-color)] rounded-xl px-5 py-2 outline-[var(--secondary-color)] font-normal my-2;
     }
 
     
@@ -81,6 +94,12 @@
         background-color: var(--background-color);
         font-family: var(--secondary-font);
         color: var(--text-color);
+        -webkit-font-smoothing: antialiased;
+        font-weight: 500;
+    }
+
+    body * {
+        border-color: var(--text-color)
     }
 }
 
@@ -94,15 +113,15 @@
     }
 
     .primary-btn {
-        @apply bg-[var(--secondary-color)] text-[var(--main-background-color)] rounded-full text-sm p-2.5;
+        @apply m-1 bg-[var(--secondary-color)] text-[var(--main-bg-color)] rounded-full text-sm p-2 border-[var(--secondary-color)] border-2 hover:shadow-md hover:shadow-[var(--secondary-color)] active:shadow-none;
     }
 
     .toast-success {
-        @apply fixed z-50 max-w-md p-4 text-[var(--main-background-color)] bg-green-900 ps-2 rounded-xl top-3 right-5;
+        @apply fixed z-50 max-w-md p-4 text-[var(--main-bg-color)] bg-green-900 ps-2 rounded-xl top-3 right-5;
     }
 
     .toast-error {
-        @apply fixed z-50 max-w-md p-4 text-[var(--main-background-color)] bg-red-700 ps-2 rounded-xl top-3 right-5;
+        @apply fixed z-50 max-w-md p-4 text-[var(--main-bg-color)] bg-red-700 ps-2 rounded-xl top-3 right-5;
     }
 
     .open-sidenav {
@@ -141,15 +160,49 @@
     label.toggle-button:active span {
         @apply w-14;
     }
+
+    label.category {
+        @apply w-32 text-center text-sm font-normal p-3 border-[var(--main-bg-color)] border-2 rounded-full transition-colors;
+    }
+
+    div.header>span:not(.logo)>a {
+        @apply text-sm border-[var(--secondary-bg-color)] border-2;
+    }
+
+    label.category:has(input:checked),
+    div.header>span:not(.logo)>a.active {
+        @apply bg-[var(--main-color)] border-[var(--text-color)];
+    }
+
+    label.category:hover,
+    div.header>span:not(.logo)>a:hover:not(.active) {
+        @apply border-[var(--secondary-light-color)];
+    }
+
+    input[type="date"] {
+        @apply ms-0.5 cursor-pointer;
+    }
+
+    input[type="date"]::-webkit-calendar-picker-indicator{
+        @apply p-1 cursor-pointer;
+    }
+
+    input[type="date"]::-webkit-calendar-picker-indicator:hover {
+        @apply bg-[var(--main-color)] rounded-full;
+    }
+
+    div.task {
+        @apply bg-[var(--task-color)] p-3 rounded-xl tracking-wide;
+    }
 }
 
 @layer utilities {
     .main-bg {
-        background-color: var(--main-background-color);
+        background-color: var(--main-bg-color);
     }
     
     .secondary-bg {
-        background-color: var(--secondary-background-color);
+        background-color: var(--secondary-bg-color);
     }
     
     .main-font {
@@ -162,22 +215,25 @@
 
     button>svg,
     span:not(.logo)>a {
-        padding: 0.5rem;
+        padding: 0.60rem;
         border-radius: 9999px;
-        margin: 0.25rem;
+        margin: 0.25rem 0.5rem;
     }
 
-    span:not(.logo)>a:hover:not(.active) {
-        background-color: var(--secondary-light-color);
-        color: var(--main-background-color);
-    }
-
-    button>svg:hover,
-    a.active {
+    button>svg:hover {
         background-color: var(--main-color);
     }
 
     a.active {
         display: block;
+    }
+
+    em>a {
+        padding: 0 0.5rem;
+        text-decoration: underline;
+    }
+
+    em>a:hover {
+        background: linear-gradient(100deg, var(--main-bg-color) 8%, var(--main-color) 0 91%, var(--main-bg-color) 1%);
     }
 }

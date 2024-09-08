@@ -87,9 +87,9 @@ const Login = () => {
       <span className="flex items-center justify-between mt-7">
         <span className="text-sm">
           don't have an account?{" "}
-          <Link className="underline" to="/register">
-            register here
-          </Link>
+          <em>
+            <Link to="/register">register here</Link>
+          </em>
         </span>
         <button type="submit" className="primary-btn">
           log in

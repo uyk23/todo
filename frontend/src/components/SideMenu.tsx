@@ -17,8 +17,7 @@ const SideMenu = () => {
 
   const { data: currentUser } = useQuery(
     "fetchCurrentUser",
-    apiClient.fetchCurrentUser,
-    { refetchOnWindowFocus: false }
+    apiClient.fetchCurrentUser
   );
 
   useEffect(() => {

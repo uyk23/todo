@@ -5,8 +5,10 @@ import {
   Navigate,
 } from "react-router-dom";
 import Layout from "./layouts/Layout";
+import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import Today from "./pages/Today";
 
 function App() {
   return (
@@ -16,7 +18,7 @@ function App() {
           path="/"
           element={
             <Layout>
-              <p>Home Page</p>
+              <Home />
             </Layout>
           }
         />
@@ -33,6 +35,14 @@ function App() {
           element={
             <Layout>
               <Login />
+            </Layout>
+          }
+        />
+        <Route
+          path="/today"
+          element={
+            <Layout>
+              <Today />
             </Layout>
           }
         />

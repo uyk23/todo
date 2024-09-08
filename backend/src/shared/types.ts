@@ -4,3 +4,13 @@ export type UserType = {
   password: string;
   username: string;
 };
+
+export type TaskType = {
+  _id: string;
+  userId: string;
+  title: string;
+  detail: string;
+  categories: string[];
+  dueDate: string;
+  tags: string[];
+};
