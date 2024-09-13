@@ -4,7 +4,7 @@ import { useState } from "react";
 import { PlusCircleIcon } from "@heroicons/react/16/solid";
 
 const TagsSection = () => {
-  const { register, watch } = useFormContext<TaskFormData>();
+  const { register } = useFormContext<TaskFormData>();
   const [tags, setTags] = useState([]);
 
   return (
