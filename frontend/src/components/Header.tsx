@@ -7,7 +7,7 @@ const Header = () => {
   const { isLoggedIn } = useAppContext();
 
   return (
-    <div className="flex items-center justify-between p-6 pe-6 secondary-bg">
+    <div className="flex items-center justify-between p-6 header pe-6 secondary-bg">
       <div className="flex p-0.5 md:p-0">
         <SideMenu />
         <span className="logo">
@@ -15,10 +15,13 @@ const Header = () => {
         </span>
       </div>
       <span className="ms-auto md:flex md:gap-10 md:m-0">
+        <NavLink className="hidden" to="/">
+          home
+        </NavLink>
         <NavLink className="hidden md:block" to="/this-week">
           this week
         </NavLink>
-        <NavLink className="md:block" to="/">
+        <NavLink className="hidden md:block" to="/today">
           today
         </NavLink>
         <NavLink className="hidden md:block" to="/tomorrow">

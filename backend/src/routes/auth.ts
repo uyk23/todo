@@ -46,7 +46,7 @@ router.post(
         maxAge: 86400000,
       });
 
-      res.status(200).json({ userId: user._id });
+      return res.status(200).json({ userId: user._id });
     } catch (error) {
       console.log(error);
       return res.status(500).json({ message: "something went wrong" });
@@ -55,15 +55,15 @@ router.post(
 );
 
 router.get("/validate-token", verifyToken, (req: Request, res: Response) => {
-  res.status(200).send({ userId: req.userId });
+  return res.status(200).send({ userId: req.userId });
 });
 
-router.post("/logout", (req:Request, res:Response) => {
+router.post("/logout", (req: Request, res: Response) => {
   res.cookie("auth_token", "", {
     expires: new Date(0),
   });
 
-  res.send();
-})
+  return res.send();
+});
 
 export default router;

@@ -149,9 +149,9 @@ const Register = () => {
       <span className="flex items-center justify-between mt-7">
         <span className="text-sm">
           already registered?{" "}
-          <Link className="underline" to="/login">
-            log in
-          </Link>
+          <em>
+            <Link to="/login">log in</Link>
+          </em>
         </span>
         <button type="submit" className="primary-btn">
           create

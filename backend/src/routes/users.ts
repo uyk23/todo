@@ -12,14 +12,14 @@ router.get("/me", verifyToken, async (req: Request, res: Response) => {
   try {
     const user = await User.findById(userId).select("-password");
     if (!user) {
-      return res.status(400).json({ message: "user not found"});
+      return res.status(400).json({ message: "user not found" });
     }
-    res.json(user);
+    return res.json(user);
   } catch (error) {
     console.log(error);
-    res.status(500).json({ message: "something went wrong" });
+    return res.status(500).json({ message: "something went wrong" });
   }
-})
+});
 
 router.post(
   "/register",
