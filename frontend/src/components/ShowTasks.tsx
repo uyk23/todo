@@ -15,10 +15,9 @@ interface Props {
 const ShowTasks = ({ page }: Props) => {
   const msInDay = 86400000;
   const { isLoggedIn } = useAppContext();
-
   const query = useQuery({
     queryKey: ["tasks"],
-    queryFn: apiClient.fetchTasks,
+    queryFn: () => apiClient.fetchTasks(page),
   });
 
   const daysLeft = (date: string) => {
@@ -36,7 +35,7 @@ const ShowTasks = ({ page }: Props) => {
   };
 
   return (
-    <div className="flex flex-wrap gap-3 mx-5">
+    <div className="flex flex-wrap gap-3">
       {isLoggedIn ? (
         query.data?.map((task) => (
           // task
@@ -44,7 +43,6 @@ const ShowTasks = ({ page }: Props) => {
             className="grid flex-1 grid-cols-1 grid-rows-3 gap-3 task basis-1/2 md:basis-1/3 lg:basis-1/4"
             key={task._id}
           >
-            {/* // header */}
             <div className="flex items-center justify-between px-1 border-b-2">
               <h2 className="w-4/5 truncate ease-in text-l hover:text-wrap">
                 {task.title}
@@ -54,7 +52,6 @@ const ShowTasks = ({ page }: Props) => {
                 <TrashIcon />
               </div>
             </div>
-            {/* // body */}
             <div className="flex flex-col justify-between row-span-2 gap-5">
               <div>
                 {task.dueDate ? (

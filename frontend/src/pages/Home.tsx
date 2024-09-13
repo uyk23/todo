@@ -3,9 +3,9 @@ import ShowTasks from "../components/ShowTasks";
 
 const Home = () => {
   return (
-    <div>
-      <ShowTasks page="home" />
+    <div className="mx-5">
       <AddTask />
+      <ShowTasks page="all" />
     </div>
   );
 };

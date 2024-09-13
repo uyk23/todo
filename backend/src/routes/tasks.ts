@@ -30,9 +30,17 @@ router.post(
   }
 );
 
-router.get("/", verifyToken, async (req: Request, res: Response) => {
+router.get("/:page", verifyToken, async (req: Request, res: Response) => {
+  const page =
+    req.params.page === "all"
+      ? ["today", "tomorrow", "this week"]
+      : [req.params.page];
+
   try {
-    const tasks = await Task.find({ userId: req.userId });
+    const tasks = await Task.find({
+      userId: req.userId,
+      categories: { $in: page },
+    });
     return res.json(tasks);
   } catch (error) {
     return res.status(500).json({ message: "error fetching tasks" });

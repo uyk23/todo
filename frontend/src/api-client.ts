@@ -89,8 +89,8 @@ export const addTask = async (formData: TaskFormData) => {
   return await response.json();
 };
 
-export const fetchTasks = async (): Promise<TaskType[]> => {
-  const response = await fetch(`${API_BASE_URL}/api/tasks`, {
+export const fetchTasks = async (page: string): Promise<TaskType[]> => {
+  const response = await fetch(`${API_BASE_URL}/api/tasks/${page}`, {
     credentials: "include",
   });
 
