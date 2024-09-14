@@ -1,0 +1,23 @@
+name: Build Check for Branches
+
+on:
+  push:
+    branches:
+      - "feature/**"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Build frontend
+        working-directory: ./frontend
+        run: |
+          npm install
+          npm run build
+      - name: Build backend
+        working-directory: ./backend
+        run: |
+          npm install
+          npm run build
