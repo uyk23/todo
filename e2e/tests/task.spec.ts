@@ -23,6 +23,8 @@ test("should allow user to add a task", async ({ page }) => {
 
   await page.goto(`${UI_URL}`);
 
+  await page.getByRole("button", { name: "add tasks" }).click();
+
   await page.locator("[name=title]").fill(`test: ${timestamp}`);
 
   await page.locator(':nth-match(:text("today"), 2)').click();
