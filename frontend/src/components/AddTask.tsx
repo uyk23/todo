@@ -10,7 +10,7 @@ const AddTask = () => {
   const { mutate, isLoading } = useMutation(apiClient.addTask, {
     onSuccess: () => {
       showToast({ message: "task saved", type: "SUCCESS" });
-      queryClient.invalidateQueries({ queryKey: ["tasks"] });
+      queryClient.invalidateQueries({ queryKey: ["all"] });
     },
     onError: () => {
       showToast({ message: "error saving task", type: "ERROR" });
