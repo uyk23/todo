@@ -8,7 +8,7 @@ import Layout from "./layouts/Layout";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
-import Today from "./pages/Today";
+import CategoryPages from "./pages/CategoryPages";
 
 function App() {
   return (
@@ -42,7 +42,23 @@ function App() {
           path="/today"
           element={
             <Layout>
-              <Today />
+              <CategoryPages page="today" />
+            </Layout>
+          }
+        />
+        <Route
+          path="/tomorrow"
+          element={
+            <Layout>
+              <CategoryPages page="tomorrow" />
+            </Layout>
+          }
+        />
+        <Route
+          path="/this-week"
+          element={
+            <Layout>
+              <CategoryPages page="this week" />
             </Layout>
           }
         />
