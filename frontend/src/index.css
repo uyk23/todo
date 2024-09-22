@@ -22,9 +22,10 @@
         --main-color: #F4E65A50;
         --secondary-color: #50281F;
         --secondary-light-color: #50281F75;
-        --warning-color-1: #ee72729f;
-        --warning-color-2: #eec072c8;
-        --warning-color-3: #84bb9fbb;
+        --warning-color-1: #f083839f;
+        --warning-color-2: #f1c57dc8;
+        --warning-color-3: #8cc4a6d6;
+        --shadow: #9b988c;
     }
 
     html[data-primary-theme='dark'][data-secondary-theme='sweet'] {
@@ -33,15 +34,15 @@
 
         --main-bg-color: #351C16;
         --secondary-bg-color: #50281F;
-        --task-color: #365142;
-        --text-color: #EDEDCE;
-        --main-color: #9f9a7a;
-        --main-color: #DCC90050;
-        --secondary-color: #F7EEB8;
-        --secondary-light-color: #F7EEB895;
-        --warning-color-1: #c9292990;
-        --warning-color-2: #ab7312e3;
-        --warning-color-3: #082b18cb;
+        --task-color: #232c27;
+        --text-color: #ede9cf;
+        --main-color: #684f0bd2;
+        --secondary-color: #ede9cf;
+        --secondary-light-color: #ede9cf8f;
+        --warning-color-1: #601111b4;
+        --warning-color-2: #4d2610ea;
+        --warning-color-3: #19221de1;
+        --shadow: #170602;
     }
 
     html[data-primary-theme='light'][data-secondary-theme='minimal'] {
@@ -55,9 +56,10 @@
         --main-color: #8396C650;
         --secondary-color: #1B1B1E;
         --secondary-light-color: #1B1B1E75;
-        --warning-color-1: #e9b1b1bd;
-        --warning-color-2: #eabf7583;
-        --warning-color-3: #b3b8ed54;
+        --warning-color-1: #db9f9fc7;
+        --warning-color-2: #dbbd98e9;
+        --warning-color-3: #c0d0cfeb;
+        --shadow: #a7a7b9;
     }
 
     html[data-primary-theme='dark'][data-secondary-theme='minimal'] {
@@ -71,9 +73,10 @@
         --main-color: #8396C650;
         --secondary-color: #CCCEE4;
         --secondary-light-color: #CCCEE495;
-        --warning-color-1: #a3393990;
-        --warning-color-2: #8f6214e3;
-        --warning-color-3: #0b1327db;
+        --warning-color-1: #461d1dc7;
+        --warning-color-2: #52330de9;
+        --warning-color-3: #06313feb;
+        --shadow: #05051c;
     }
 
     svg {

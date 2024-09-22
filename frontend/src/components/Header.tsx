@@ -7,7 +7,7 @@ const Header = () => {
   const { isLoggedIn } = useAppContext();
 
   return (
-    <div className="flex items-center justify-between p-6 header pe-6 secondary-bg">
+    <div className="sticky top-0 flex items-center justify-between p-6 shadow-md shadow-[var(--shadow)] header secondary-bg">
       <div className="flex p-0.5 md:p-0">
         <SideMenu />
         <span className="logo">

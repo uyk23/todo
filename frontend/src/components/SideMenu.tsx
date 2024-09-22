@@ -32,13 +32,13 @@ const SideMenu = () => {
       <button
         onClick={closeMenu}
         className={
-          "absolute w-full h-full bg-slate-900/50 z-10 " +
+          "absolute w-full h-screen bg-slate-900/50 z-10 " +
           (open ? "open-sidenav-bg open-sidenav" : "close-sidenav-bg")
         }
       ></button>
       <div
         className={
-          "flex flex-col md:w-1/2 w-full h-full absolute transition-all main-bg z-20 duration-700 " +
+          "shadow-2xl shadow-[var(--shadow)] flex flex-col md:w-1/2 w-full h-screen absolute transition-all main-bg z-20 duration-700 " +
           (open ? "open-sidenav" : "close-sidenav")
         }
       >
