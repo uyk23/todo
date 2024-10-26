@@ -15,11 +15,11 @@
         --primary-font: "Abril Fatface", "serif";
         --secondary-font: "Poppins", "sans-serif";
 
-        --main-bg-color: #FFFFEB;
-        --secondary-bg-color: #E9E1C1;
+        --main-bg-color: #fbf8dc;
+        --secondary-bg-color: #eddfb9;
         --task-color: #A8CFB9;
         --text-color: #50281F;
-        --main-color: #F4E65A50;
+        --main-color: #f4dd5a75;
         --secondary-color: #50281F;
         --secondary-light-color: #50281F75;
         --warning-color-1: #f083839f;
@@ -36,7 +36,7 @@
         --secondary-bg-color: #50281F;
         --task-color: #232c27;
         --text-color: #ede9cf;
-        --main-color: #684f0bd2;
+        --main-color: #7b5d0ad2;
         --secondary-color: #ede9cf;
         --secondary-light-color: #ede9cf8f;
         --warning-color-1: #601111b4;
